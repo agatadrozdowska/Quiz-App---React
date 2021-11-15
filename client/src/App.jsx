@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Level1 from './components/Level1.jsx';
+import Level2 from './components/Level2.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,9 +11,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>hello</h1>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element={<Level1 />} />
+          <Route exact path='/level2' element={<Level2 />} />
+        </Routes>
+      </BrowserRouter>
     );
   }
 }

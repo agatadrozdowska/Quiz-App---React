@@ -7864,6 +7864,9 @@ if (true) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _components_Level1_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
+/* harmony import */ var _components_Level2_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(16);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -7888,6 +7891,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
+
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -7906,7 +7912,15 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "hello"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Routes"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        exact: true,
+        path: "/",
+        element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Level1_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null)
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        exact: true,
+        path: "/level2",
+        element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Level2_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null)
+      })));
     }
   }]);
 
@@ -7914,6 +7928,2121 @@ var App = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return BrowserRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return HashRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return Link; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return NavLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSearchParams", function() { return createSearchParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useLinkClickHandler", function() { return useLinkClickHandler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useSearchParams", function() { return useSearchParams; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["MemoryRouter"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Navigate", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["Navigate"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Outlet", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["Outlet"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["Route"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["Router"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Routes", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["Routes"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UNSAFE_LocationContext", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["UNSAFE_LocationContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UNSAFE_NavigationContext", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["UNSAFE_NavigationContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UNSAFE_RouteContext", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["UNSAFE_RouteContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createRoutesFromChildren", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["createRoutesFromChildren"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "generatePath", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["generatePath"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["matchPath"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "matchRoutes", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["matchRoutes"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "renderMatches", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["renderMatches"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "resolvePath", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["resolvePath"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useHref", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useHref"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useInRouterContext", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useInRouterContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useLocation", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useLocation"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useMatch", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useMatch"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNavigate", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useNavigate"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNavigationType", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useNavigationType"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useOutlet", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useOutlet"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useParams", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useParams"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useResolvedPath", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useResolvedPath"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useRoutes", function() { return react_router__WEBPACK_IMPORTED_MODULE_2__["useRoutes"]; });
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/**
+ * React Router DOM v6.0.2
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */
+
+
+
+
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+var _excluded = ["onClick", "reloadDocument", "replace", "state", "target", "to"],
+    _excluded2 = ["aria-current", "caseSensitive", "className", "end", "style", "to"];
+
+function warning(cond, message) {
+  if (!cond) {
+    // eslint-disable-next-line no-console
+    if (typeof console !== "undefined") console.warn(message);
+
+    try {
+      // Welcome to debugging React Router!
+      //
+      // This error is thrown as a convenience so you can more easily
+      // find the source for a warning that appears in the console by
+      // enabling "pause on exceptions" in your JavaScript debugger.
+      throw new Error(message); // eslint-disable-next-line no-empty
+    } catch (e) {}
+  }
+} ////////////////////////////////////////////////////////////////////////////////
+// COMPONENTS
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * A <Router> for use in web browsers. Provides the cleanest URLs.
+ */
+
+
+function BrowserRouter(_ref) {
+  var basename = _ref.basename,
+      children = _ref.children,
+      window = _ref.window;
+  var historyRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+
+  if (historyRef.current == null) {
+    historyRef.current = Object(history__WEBPACK_IMPORTED_MODULE_1__["createBrowserHistory"])({
+      window: window
+    });
+  }
+
+  var history = historyRef.current;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    action: history.action,
+    location: history.location
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"])(function () {
+    return history.listen(setState);
+  }, [history]);
+  return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_router__WEBPACK_IMPORTED_MODULE_2__["Router"], {
+    basename: basename,
+    children: children,
+    location: state.location,
+    navigationType: state.action,
+    navigator: history
+  });
+}
+/**
+ * A <Router> for use in web browsers. Stores the location in the hash
+ * portion of the URL so it is not sent to the server.
+ */
+
+
+function HashRouter(_ref2) {
+  var basename = _ref2.basename,
+      children = _ref2.children,
+      window = _ref2.window;
+  var historyRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+
+  if (historyRef.current == null) {
+    historyRef.current = Object(history__WEBPACK_IMPORTED_MODULE_1__["createHashHistory"])({
+      window: window
+    });
+  }
+
+  var history = historyRef.current;
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    action: history.action,
+    location: history.location
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      state = _useState4[0],
+      setState = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"])(function () {
+    return history.listen(setState);
+  }, [history]);
+  return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_router__WEBPACK_IMPORTED_MODULE_2__["Router"], {
+    basename: basename,
+    children: children,
+    location: state.location,
+    navigationType: state.action,
+    navigator: history
+  });
+}
+
+function isModifiedEvent(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+/**
+ * The public API for rendering a history-aware <a>.
+ */
+
+
+var Link = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function LinkWithRef(_ref3, ref) {
+  var onClick = _ref3.onClick,
+      reloadDocument = _ref3.reloadDocument,
+      _ref3$replace = _ref3.replace,
+      replace = _ref3$replace === void 0 ? false : _ref3$replace,
+      state = _ref3.state,
+      target = _ref3.target,
+      to = _ref3.to,
+      rest = _objectWithoutPropertiesLoose(_ref3, _excluded);
+
+  var href = Object(react_router__WEBPACK_IMPORTED_MODULE_2__["useHref"])(to);
+  var internalOnClick = useLinkClickHandler(to, {
+    replace: replace,
+    state: state,
+    target: target
+  });
+
+  function handleClick(event) {
+    if (onClick) onClick(event);
+
+    if (!event.defaultPrevented && !reloadDocument) {
+      internalOnClick(event);
+    }
+  }
+
+  return (
+    /*#__PURE__*/
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", _extends({}, rest, {
+      href: href,
+      onClick: handleClick,
+      ref: ref,
+      target: target
+    }))
+  );
+});
+
+if (true) {
+  Link.displayName = "Link";
+}
+/**
+ * A <Link> wrapper that knows if it's "active" or not.
+ */
+
+
+var NavLink = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function NavLinkWithRef(_ref4, ref) {
+  var _ref4$ariaCurrent = _ref4["aria-current"],
+      ariaCurrentProp = _ref4$ariaCurrent === void 0 ? "page" : _ref4$ariaCurrent,
+      _ref4$caseSensitive = _ref4.caseSensitive,
+      caseSensitive = _ref4$caseSensitive === void 0 ? false : _ref4$caseSensitive,
+      _ref4$className = _ref4.className,
+      classNameProp = _ref4$className === void 0 ? "" : _ref4$className,
+      _ref4$end = _ref4.end,
+      end = _ref4$end === void 0 ? false : _ref4$end,
+      styleProp = _ref4.style,
+      to = _ref4.to,
+      rest = _objectWithoutPropertiesLoose(_ref4, _excluded2);
+
+  var location = Object(react_router__WEBPACK_IMPORTED_MODULE_2__["useLocation"])();
+  var path = Object(react_router__WEBPACK_IMPORTED_MODULE_2__["useResolvedPath"])(to);
+  var locationPathname = location.pathname;
+  var toPathname = path.pathname;
+
+  if (!caseSensitive) {
+    locationPathname = locationPathname.toLowerCase();
+    toPathname = toPathname.toLowerCase();
+  }
+
+  var isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === "/";
+  var ariaCurrent = isActive ? ariaCurrentProp : undefined;
+  var className;
+
+  if (typeof classNameProp === "function") {
+    className = classNameProp({
+      isActive: isActive
+    });
+  } else {
+    // If the className prop is not a function, we use a default `active`
+    // class for <NavLink />s that are active. In v5 `active` was the default
+    // value for `activeClassName`, but we are removing that API and can still
+    // use the old default behavior for a cleaner upgrade path and keep the
+    // simple styling rules working as they currently do.
+    className = [classNameProp, isActive ? "active" : null].filter(Boolean).join(" ");
+  }
+
+  var style = typeof styleProp === "function" ? styleProp({
+    isActive: isActive
+  }) : styleProp;
+  return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Link, _extends({}, rest, {
+    "aria-current": ariaCurrent,
+    className: className,
+    ref: ref,
+    style: style,
+    to: to
+  }));
+});
+
+if (true) {
+  NavLink.displayName = "NavLink";
+} ////////////////////////////////////////////////////////////////////////////////
+// HOOKS
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Handles the click behavior for router `<Link>` components. This is useful if
+ * you need to create custom `<Link>` components with the same click behavior we
+ * use in our exported `<Link>`.
+ */
+
+
+function useLinkClickHandler(to, _temp) {
+  var _ref5 = _temp === void 0 ? {} : _temp,
+      target = _ref5.target,
+      replaceProp = _ref5.replace,
+      state = _ref5.state;
+
+  var navigate = Object(react_router__WEBPACK_IMPORTED_MODULE_2__["useNavigate"])();
+  var location = Object(react_router__WEBPACK_IMPORTED_MODULE_2__["useLocation"])();
+  var path = Object(react_router__WEBPACK_IMPORTED_MODULE_2__["useResolvedPath"])(to);
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (event) {
+    if (event.button === 0 && ( // Ignore everything but left clicks
+    !target || target === "_self") && // Let browser handle "target=_blank" etc.
+    !isModifiedEvent(event) // Ignore clicks with modifier keys
+    ) {
+      event.preventDefault(); // If the URL hasn't changed, a regular <a> will do a replace instead of
+      // a push, so do the same here.
+
+      var replace = !!replaceProp || Object(history__WEBPACK_IMPORTED_MODULE_1__["createPath"])(location) === Object(history__WEBPACK_IMPORTED_MODULE_1__["createPath"])(path);
+      navigate(to, {
+        replace: replace,
+        state: state
+      });
+    }
+  }, [location, navigate, path, replaceProp, state, target, to]);
+}
+/**
+ * A convenient wrapper for reading and writing search parameters via the
+ * URLSearchParams interface.
+ */
+
+
+function useSearchParams(defaultInit) {
+   true ? warning(typeof URLSearchParams !== "undefined", "You cannot use the `useSearchParams` hook in a browser that does not " + "support the URLSearchParams API. If you need to support Internet " + "Explorer 11, we recommend you load a polyfill such as " + "https://github.com/ungap/url-search-params\n\n" + "If you're unsure how to load polyfills, we recommend you check out " + "https://polyfill.io/v3/ which provides some recommendations about how " + "to load polyfills only for users that need them, instead of for every " + "user.") : undefined;
+  var defaultSearchParamsRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(createSearchParams(defaultInit));
+  var location = Object(react_router__WEBPACK_IMPORTED_MODULE_2__["useLocation"])();
+  var searchParams = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    var searchParams = createSearchParams(location.search);
+
+    var _iterator = _createForOfIteratorHelper(defaultSearchParamsRef.current.keys()),
+        _step;
+
+    try {
+      var _loop = function _loop() {
+        var key = _step.value;
+
+        if (!searchParams.has(key)) {
+          defaultSearchParamsRef.current.getAll(key).forEach(function (value) {
+            searchParams.append(key, value);
+          });
+        }
+      };
+
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        _loop();
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    return searchParams;
+  }, [location.search]);
+  var navigate = Object(react_router__WEBPACK_IMPORTED_MODULE_2__["useNavigate"])();
+  var setSearchParams = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (nextInit, navigateOptions) {
+    navigate("?" + createSearchParams(nextInit), navigateOptions);
+  }, [navigate]);
+  return [searchParams, setSearchParams];
+}
+/**
+ * Creates a URLSearchParams object using the given initializer.
+ *
+ * This is identical to `new URLSearchParams(init)` except it also
+ * supports arrays as values in the object form of the initializer
+ * instead of just strings. This is convenient when you need multiple
+ * values for a given key, but don't want to use an array initializer.
+ *
+ * For example, instead of:
+ *
+ *   let searchParams = new URLSearchParams([
+ *     ['sort', 'name'],
+ *     ['sort', 'price']
+ *   ]);
+ *
+ * you can do:
+ *
+ *   let searchParams = createSearchParams({
+ *     sort: ['name', 'price']
+ *   });
+ */
+
+
+function createSearchParams(init) {
+  if (init === void 0) {
+    init = "";
+  }
+
+  return new URLSearchParams(typeof init === "string" || Array.isArray(init) || init instanceof URLSearchParams ? init : Object.keys(init).reduce(function (memo, key) {
+    var value = init[key];
+    return memo.concat(Array.isArray(value) ? value.map(function (v) {
+      return [key, v];
+    }) : [[key, value]]);
+  }, []));
+}
+
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Action", function() { return r; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBrowserHistory", function() { return createBrowserHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createHashHistory", function() { return createHashHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMemoryHistory", function() { return createMemoryHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPath", function() { return I; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parsePath", function() { return J; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+
+var r,
+    B = r || (r = {});
+B.Pop = "POP";
+B.Push = "PUSH";
+B.Replace = "REPLACE";
+var C =  true ? function (b) {
+  return Object.freeze(b);
+} : undefined;
+
+function D(b, h) {
+  if (!b) {
+    "undefined" !== typeof console && console.warn(h);
+
+    try {
+      throw Error(h);
+    } catch (k) {}
+  }
+}
+
+function E(b) {
+  b.preventDefault();
+  b.returnValue = "";
+}
+
+function F() {
+  var b = [];
+  return {
+    get length() {
+      return b.length;
+    },
+
+    push: function push(h) {
+      b.push(h);
+      return function () {
+        b = b.filter(function (k) {
+          return k !== h;
+        });
+      };
+    },
+    call: function call(h) {
+      b.forEach(function (k) {
+        return k && k(h);
+      });
+    }
+  };
+}
+
+function H() {
+  return Math.random().toString(36).substr(2, 8);
+}
+
+function I(b) {
+  var h = b.pathname,
+      k = b.search;
+  b = b.hash;
+  return (void 0 === h ? "/" : h) + (void 0 === k ? "" : k) + (void 0 === b ? "" : b);
+}
+
+function J(b) {
+  var h = {};
+
+  if (b) {
+    var k = b.indexOf("#");
+    0 <= k && (h.hash = b.substr(k), b = b.substr(0, k));
+    k = b.indexOf("?");
+    0 <= k && (h.search = b.substr(k), b = b.substr(0, k));
+    b && (h.pathname = b);
+  }
+
+  return h;
+}
+
+function createBrowserHistory(b) {
+  function h() {
+    var c = p.location,
+        a = m.state || {};
+    return [a.idx, C({
+      pathname: c.pathname,
+      search: c.search,
+      hash: c.hash,
+      state: a.usr || null,
+      key: a.key || "default"
+    })];
+  }
+
+  function k(c) {
+    return "string" === typeof c ? c : I(c);
+  }
+
+  function x(c, a) {
+    void 0 === a && (a = null);
+    return C(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      pathname: q.pathname,
+      hash: "",
+      search: ""
+    }, "string" === typeof c ? J(c) : c, {
+      state: a,
+      key: H()
+    }));
+  }
+
+  function z(c) {
+    t = c;
+    c = h();
+    v = c[0];
+    q = c[1];
+    d.call({
+      action: t,
+      location: q
+    });
+  }
+
+  function A(c, a) {
+    function e() {
+      A(c, a);
+    }
+
+    var l = r.Push,
+        g = x(c, a);
+
+    if (!f.length || (f.call({
+      action: l,
+      location: g,
+      retry: e
+    }), !1)) {
+      var n = [{
+        usr: g.state,
+        key: g.key,
+        idx: v + 1
+      }, k(g)];
+      g = n[0];
+      n = n[1];
+
+      try {
+        m.pushState(g, "", n);
+      } catch (G) {
+        p.location.assign(n);
+      }
+
+      z(l);
+    }
+  }
+
+  function y(c, a) {
+    function e() {
+      y(c, a);
+    }
+
+    var l = r.Replace,
+        g = x(c, a);
+    f.length && (f.call({
+      action: l,
+      location: g,
+      retry: e
+    }), 1) || (g = [{
+      usr: g.state,
+      key: g.key,
+      idx: v
+    }, k(g)], m.replaceState(g[0], "", g[1]), z(l));
+  }
+
+  function w(c) {
+    m.go(c);
+  }
+
+  void 0 === b && (b = {});
+  b = b.window;
+  var p = void 0 === b ? document.defaultView : b,
+      m = p.history,
+      u = null;
+  p.addEventListener("popstate", function () {
+    if (u) f.call(u), u = null;else {
+      var c = r.Pop,
+          a = h(),
+          e = a[0];
+      a = a[1];
+      if (f.length) {
+        if (null != e) {
+          var l = v - e;
+          l && (u = {
+            action: c,
+            location: a,
+            retry: function retry() {
+              w(-1 * l);
+            }
+          }, w(l));
+        } else  true ? D(!1, "You are trying to block a POP navigation to a location that was not created by the history library. The block will fail silently in production, but in general you should do all navigation with the history library (instead of using window.history.pushState directly) to avoid this situation.") : undefined;
+      } else z(c);
+    }
+  });
+  var t = r.Pop;
+  b = h();
+  var v = b[0],
+      q = b[1],
+      d = F(),
+      f = F();
+  null == v && (v = 0, m.replaceState(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, m.state, {
+    idx: v
+  }), ""));
+  return {
+    get action() {
+      return t;
+    },
+
+    get location() {
+      return q;
+    },
+
+    createHref: k,
+    push: A,
+    replace: y,
+    go: w,
+    back: function back() {
+      w(-1);
+    },
+    forward: function forward() {
+      w(1);
+    },
+    listen: function listen(c) {
+      return d.push(c);
+    },
+    block: function block(c) {
+      var a = f.push(c);
+      1 === f.length && p.addEventListener("beforeunload", E);
+      return function () {
+        a();
+        f.length || p.removeEventListener("beforeunload", E);
+      };
+    }
+  };
+}
+
+;
+
+function createHashHistory(b) {
+  function h() {
+    var a = J(m.location.hash.substr(1)),
+        e = a.pathname,
+        l = a.search;
+    a = a.hash;
+    var g = u.state || {};
+    return [g.idx, C({
+      pathname: void 0 === e ? "/" : e,
+      search: void 0 === l ? "" : l,
+      hash: void 0 === a ? "" : a,
+      state: g.usr || null,
+      key: g.key || "default"
+    })];
+  }
+
+  function k() {
+    if (t) c.call(t), t = null;else {
+      var a = r.Pop,
+          e = h(),
+          l = e[0];
+      e = e[1];
+      if (c.length) {
+        if (null != l) {
+          var g = q - l;
+          g && (t = {
+            action: a,
+            location: e,
+            retry: function retry() {
+              p(-1 * g);
+            }
+          }, p(g));
+        } else  true ? D(!1, "You are trying to block a POP navigation to a location that was not created by the history library. The block will fail silently in production, but in general you should do all navigation with the history library (instead of using window.history.pushState directly) to avoid this situation.") : undefined;
+      } else A(a);
+    }
+  }
+
+  function x(a) {
+    var e = document.querySelector("base"),
+        l = "";
+    e && e.getAttribute("href") && (e = m.location.href, l = e.indexOf("#"), l = -1 === l ? e : e.slice(0, l));
+    return l + "#" + ("string" === typeof a ? a : I(a));
+  }
+
+  function z(a, e) {
+    void 0 === e && (e = null);
+    return C(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      pathname: d.pathname,
+      hash: "",
+      search: ""
+    }, "string" === typeof a ? J(a) : a, {
+      state: e,
+      key: H()
+    }));
+  }
+
+  function A(a) {
+    v = a;
+    a = h();
+    q = a[0];
+    d = a[1];
+    f.call({
+      action: v,
+      location: d
+    });
+  }
+
+  function y(a, e) {
+    function l() {
+      y(a, e);
+    }
+
+    var g = r.Push,
+        n = z(a, e);
+     true ? D("/" === n.pathname.charAt(0), "Relative pathnames are not supported in hash history.push(" + JSON.stringify(a) + ")") : undefined;
+
+    if (!c.length || (c.call({
+      action: g,
+      location: n,
+      retry: l
+    }), !1)) {
+      var G = [{
+        usr: n.state,
+        key: n.key,
+        idx: q + 1
+      }, x(n)];
+      n = G[0];
+      G = G[1];
+
+      try {
+        u.pushState(n, "", G);
+      } catch (K) {
+        m.location.assign(G);
+      }
+
+      A(g);
+    }
+  }
+
+  function w(a, e) {
+    function l() {
+      w(a, e);
+    }
+
+    var g = r.Replace,
+        n = z(a, e);
+     true ? D("/" === n.pathname.charAt(0), "Relative pathnames are not supported in hash history.replace(" + JSON.stringify(a) + ")") : undefined;
+    c.length && (c.call({
+      action: g,
+      location: n,
+      retry: l
+    }), 1) || (n = [{
+      usr: n.state,
+      key: n.key,
+      idx: q
+    }, x(n)], u.replaceState(n[0], "", n[1]), A(g));
+  }
+
+  function p(a) {
+    u.go(a);
+  }
+
+  void 0 === b && (b = {});
+  b = b.window;
+  var m = void 0 === b ? document.defaultView : b,
+      u = m.history,
+      t = null;
+  m.addEventListener("popstate", k);
+  m.addEventListener("hashchange", function () {
+    var a = h()[1];
+    I(a) !== I(d) && k();
+  });
+  var v = r.Pop;
+  b = h();
+  var q = b[0],
+      d = b[1],
+      f = F(),
+      c = F();
+  null == q && (q = 0, u.replaceState(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, u.state, {
+    idx: q
+  }), ""));
+  return {
+    get action() {
+      return v;
+    },
+
+    get location() {
+      return d;
+    },
+
+    createHref: x,
+    push: y,
+    replace: w,
+    go: p,
+    back: function back() {
+      p(-1);
+    },
+    forward: function forward() {
+      p(1);
+    },
+    listen: function listen(a) {
+      return f.push(a);
+    },
+    block: function block(a) {
+      var e = c.push(a);
+      1 === c.length && m.addEventListener("beforeunload", E);
+      return function () {
+        e();
+        c.length || m.removeEventListener("beforeunload", E);
+      };
+    }
+  };
+}
+
+;
+
+function createMemoryHistory(b) {
+  function h(d, f) {
+    void 0 === f && (f = null);
+    return C(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      pathname: t.pathname,
+      search: "",
+      hash: ""
+    }, "string" === typeof d ? J(d) : d, {
+      state: f,
+      key: H()
+    }));
+  }
+
+  function k(d, f, c) {
+    return !q.length || (q.call({
+      action: d,
+      location: f,
+      retry: c
+    }), !1);
+  }
+
+  function x(d, f) {
+    u = d;
+    t = f;
+    v.call({
+      action: u,
+      location: t
+    });
+  }
+
+  function z(d, f) {
+    var c = r.Push,
+        a = h(d, f);
+     true ? D("/" === t.pathname.charAt(0), "Relative pathnames are not supported in memory history.push(" + JSON.stringify(d) + ")") : undefined;
+    k(c, a, function () {
+      z(d, f);
+    }) && (m += 1, p.splice(m, p.length, a), x(c, a));
+  }
+
+  function A(d, f) {
+    var c = r.Replace,
+        a = h(d, f);
+     true ? D("/" === t.pathname.charAt(0), "Relative pathnames are not supported in memory history.replace(" + JSON.stringify(d) + ")") : undefined;
+    k(c, a, function () {
+      A(d, f);
+    }) && (p[m] = a, x(c, a));
+  }
+
+  function y(d) {
+    var f = Math.min(Math.max(m + d, 0), p.length - 1),
+        c = r.Pop,
+        a = p[f];
+    k(c, a, function () {
+      y(d);
+    }) && (m = f, x(c, a));
+  }
+
+  void 0 === b && (b = {});
+  var w = b;
+  b = w.initialEntries;
+  w = w.initialIndex;
+  var p = (void 0 === b ? ["/"] : b).map(function (d) {
+    var f = C(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      pathname: "/",
+      search: "",
+      hash: "",
+      state: null,
+      key: H()
+    }, "string" === typeof d ? J(d) : d));
+     true ? D("/" === f.pathname.charAt(0), "Relative pathnames are not supported in createMemoryHistory({ initialEntries }) (invalid entry: " + JSON.stringify(d) + ")") : undefined;
+    return f;
+  }),
+      m = Math.min(Math.max(null == w ? p.length - 1 : w, 0), p.length - 1),
+      u = r.Pop,
+      t = p[m],
+      v = F(),
+      q = F();
+  return {
+    get index() {
+      return m;
+    },
+
+    get action() {
+      return u;
+    },
+
+    get location() {
+      return t;
+    },
+
+    createHref: function createHref(d) {
+      return "string" === typeof d ? d : I(d);
+    },
+    push: z,
+    replace: A,
+    go: y,
+    back: function back() {
+      y(-1);
+    },
+    forward: function forward() {
+      y(1);
+    },
+    listen: function listen(d) {
+      return v.push(d);
+    },
+    block: function block(d) {
+      return q.push(d);
+    }
+  };
+}
+
+;
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _extends; });
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return MemoryRouter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Navigate", function() { return Navigate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Outlet", function() { return Outlet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return Route; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return Router; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Routes", function() { return Routes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNSAFE_LocationContext", function() { return LocationContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNSAFE_NavigationContext", function() { return NavigationContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNSAFE_RouteContext", function() { return RouteContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createRoutesFromChildren", function() { return createRoutesFromChildren; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generatePath", function() { return generatePath; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return matchPath; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "matchRoutes", function() { return matchRoutes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderMatches", function() { return renderMatches; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resolvePath", function() { return resolvePath; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useHref", function() { return useHref; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useInRouterContext", function() { return useInRouterContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useLocation", function() { return useLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useMatch", function() { return useMatch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useNavigate", function() { return useNavigate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useNavigationType", function() { return useNavigationType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useOutlet", function() { return useOutlet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useParams", function() { return useParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useResolvedPath", function() { return useResolvedPath; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useRoutes", function() { return useRoutes; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/**
+ * React Router v6.0.2
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */
+
+
+
+function invariant(cond, message) {
+  if (!cond) throw new Error(message);
+}
+
+function warning(cond, message) {
+  if (!cond) {
+    // eslint-disable-next-line no-console
+    if (typeof console !== "undefined") console.warn(message);
+
+    try {
+      // Welcome to debugging React Router!
+      //
+      // This error is thrown as a convenience so you can more easily
+      // find the source for a warning that appears in the console by
+      // enabling "pause on exceptions" in your JavaScript debugger.
+      throw new Error(message); // eslint-disable-next-line no-empty
+    } catch (e) {}
+  }
+}
+
+var alreadyWarned = {};
+
+function warningOnce(key, cond, message) {
+  if (!cond && !alreadyWarned[key]) {
+    alreadyWarned[key] = true;
+     true ? warning(false, message) : undefined;
+  }
+} ///////////////////////////////////////////////////////////////////////////////
+// CONTEXT
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * A Navigator is a "location changer"; it's how you get to different locations.
+ *
+ * Every history instance conforms to the Navigator interface, but the
+ * distinction is useful primarily when it comes to the low-level <Router> API
+ * where both the location and a navigator must be provided separately in order
+ * to avoid "tearing" that may occur in a suspense-enabled app if the action
+ * and/or location were to be read directly from the history instance.
+ */
+
+
+var NavigationContext = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
+
+if (true) {
+  NavigationContext.displayName = "Navigation";
+}
+
+var LocationContext = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
+
+if (true) {
+  LocationContext.displayName = "Location";
+}
+
+var RouteContext = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])({
+  outlet: null,
+  matches: []
+});
+
+if (true) {
+  RouteContext.displayName = "Route";
+} ///////////////////////////////////////////////////////////////////////////////
+// COMPONENTS
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * A <Router> that stores all entries in memory.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#memoryrouter
+ */
+
+
+function MemoryRouter(_ref) {
+  var basename = _ref.basename,
+      children = _ref.children,
+      initialEntries = _ref.initialEntries,
+      initialIndex = _ref.initialIndex;
+  var historyRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+
+  if (historyRef.current == null) {
+    historyRef.current = Object(history__WEBPACK_IMPORTED_MODULE_1__["createMemoryHistory"])({
+      initialEntries: initialEntries,
+      initialIndex: initialIndex
+    });
+  }
+
+  var history = historyRef.current;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    action: history.action,
+    location: history.location
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"])(function () {
+    return history.listen(setState);
+  }, [history]);
+  return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Router, {
+    basename: basename,
+    children: children,
+    location: state.location,
+    navigationType: state.action,
+    navigator: history
+  });
+}
+/**
+ * Changes the current location.
+ *
+ * Note: This API is mostly useful in React.Component subclasses that are not
+ * able to use hooks. In functional components, we recommend you use the
+ * `useNavigate` hook instead.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#navigate
+ */
+
+
+function Navigate(_ref2) {
+  var to = _ref2.to,
+      replace = _ref2.replace,
+      state = _ref2.state;
+  !useInRouterContext() ?  true ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of
+  // the router loaded. We can help them understand how to avoid that.
+  "<Navigate> may be used only in the context of a <Router> component.") : undefined : void 0;
+   true ? warning(!Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(NavigationContext)["static"], "<Navigate> must not be used on the initial render in a <StaticRouter>. " + "This is a no-op, but you should modify your code so the <Navigate> is " + "only ever rendered in response to some user interaction or state change.") : undefined;
+  var navigate = useNavigate();
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    navigate(to, {
+      replace: replace,
+      state: state
+    });
+  });
+  return null;
+}
+/**
+ * Renders the child route's element, if there is one.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#outlet
+ */
+
+
+function Outlet(_props) {
+  return useOutlet();
+}
+/**
+ * Declares an element that should be rendered at a certain URL path.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#route
+ */
+
+
+function Route(_props) {
+   true ? invariant(false, "A <Route> is only ever to be used as the child of <Routes> element, " + "never rendered directly. Please wrap your <Route> in a <Routes>.") : undefined;
+}
+/**
+ * Provides location context for the rest of the app.
+ *
+ * Note: You usually won't render a <Router> directly. Instead, you'll render a
+ * router that is more specific to your environment such as a <BrowserRouter>
+ * in web browsers or a <StaticRouter> for server rendering.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#router
+ */
+
+
+function Router(_ref3) {
+  var _ref3$basename = _ref3.basename,
+      basenameProp = _ref3$basename === void 0 ? "/" : _ref3$basename,
+      _ref3$children = _ref3.children,
+      children = _ref3$children === void 0 ? null : _ref3$children,
+      locationProp = _ref3.location,
+      _ref3$navigationType = _ref3.navigationType,
+      navigationType = _ref3$navigationType === void 0 ? history__WEBPACK_IMPORTED_MODULE_1__["Action"].Pop : _ref3$navigationType,
+      navigator = _ref3.navigator,
+      _ref3$static = _ref3["static"],
+      staticProp = _ref3$static === void 0 ? false : _ref3$static;
+  !!useInRouterContext() ?  true ? invariant(false, "You cannot render a <Router> inside another <Router>." + " You should never have more than one in your app.") : undefined : void 0;
+  var basename = normalizePathname(basenameProp);
+  var navigationContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    return {
+      basename: basename,
+      navigator: navigator,
+      "static": staticProp
+    };
+  }, [basename, navigator, staticProp]);
+
+  if (typeof locationProp === "string") {
+    locationProp = Object(history__WEBPACK_IMPORTED_MODULE_1__["parsePath"])(locationProp);
+  }
+
+  var _locationProp = locationProp,
+      _locationProp$pathnam = _locationProp.pathname,
+      pathname = _locationProp$pathnam === void 0 ? "/" : _locationProp$pathnam,
+      _locationProp$search = _locationProp.search,
+      search = _locationProp$search === void 0 ? "" : _locationProp$search,
+      _locationProp$hash = _locationProp.hash,
+      hash = _locationProp$hash === void 0 ? "" : _locationProp$hash,
+      _locationProp$state = _locationProp.state,
+      state = _locationProp$state === void 0 ? null : _locationProp$state,
+      _locationProp$key = _locationProp.key,
+      key = _locationProp$key === void 0 ? "default" : _locationProp$key;
+  var location = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    var trailingPathname = stripBasename(pathname, basename);
+
+    if (trailingPathname == null) {
+      return null;
+    }
+
+    return {
+      pathname: trailingPathname,
+      search: search,
+      hash: hash,
+      state: state,
+      key: key
+    };
+  }, [basename, pathname, search, hash, state, key]);
+   true ? warning(location != null, "<Router basename=\"" + basename + "\"> is not able to match the URL " + ("\"" + pathname + search + hash + "\" because it does not start with the ") + "basename, so the <Router> won't render anything.") : undefined;
+
+  if (location == null) {
+    return null;
+  }
+
+  return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(NavigationContext.Provider, {
+    value: navigationContext
+  }, /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(LocationContext.Provider, {
+    children: children,
+    value: {
+      location: location,
+      navigationType: navigationType
+    }
+  }));
+}
+/**
+ * A container for a nested tree of <Route> elements that renders the branch
+ * that best matches the current location.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#routes
+ */
+
+
+function Routes(_ref4) {
+  var children = _ref4.children,
+      location = _ref4.location;
+  return useRoutes(createRoutesFromChildren(children), location);
+} ///////////////////////////////////////////////////////////////////////////////
+// HOOKS
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Returns the full href for the given "to" value. This is useful for building
+ * custom links that are also accessible and preserve right-click behavior.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#usehref
+ */
+
+
+function useHref(to) {
+  !useInRouterContext() ?  true ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
+  // router loaded. We can help them understand how to avoid that.
+  "useHref() may be used only in the context of a <Router> component.") : undefined : void 0;
+
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(NavigationContext),
+      basename = _useContext.basename,
+      navigator = _useContext.navigator;
+
+  var _useResolvedPath = useResolvedPath(to),
+      hash = _useResolvedPath.hash,
+      pathname = _useResolvedPath.pathname,
+      search = _useResolvedPath.search;
+
+  var joinedPathname = pathname;
+
+  if (basename !== "/") {
+    var toPathname = getToPathname(to);
+    var endsWithSlash = toPathname != null && toPathname.endsWith("/");
+    joinedPathname = pathname === "/" ? basename + (endsWithSlash ? "/" : "") : joinPaths([basename, pathname]);
+  }
+
+  return navigator.createHref({
+    pathname: joinedPathname,
+    search: search,
+    hash: hash
+  });
+}
+/**
+ * Returns true if this component is a descendant of a <Router>.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#useinroutercontext
+ */
+
+
+function useInRouterContext() {
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(LocationContext) != null;
+}
+/**
+ * Returns the current location object, which represents the current URL in web
+ * browsers.
+ *
+ * Note: If you're using this it may mean you're doing some of your own
+ * "routing" in your app, and we'd like to know what your use case is. We may
+ * be able to provide something higher-level to better suit your needs.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#uselocation
+ */
+
+
+function useLocation() {
+  !useInRouterContext() ?  true ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
+  // router loaded. We can help them understand how to avoid that.
+  "useLocation() may be used only in the context of a <Router> component.") : undefined : void 0;
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(LocationContext).location;
+}
+/**
+ * Returns the current navigation action which describes how the router came to
+ * the current location, either by a pop, push, or replace on the history stack.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#usenavigationtype
+ */
+
+
+function useNavigationType() {
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(LocationContext).navigationType;
+}
+/**
+ * Returns true if the URL for the given "to" value matches the current URL.
+ * This is useful for components that need to know "active" state, e.g.
+ * <NavLink>.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#usematch
+ */
+
+
+function useMatch(pattern) {
+  !useInRouterContext() ?  true ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
+  // router loaded. We can help them understand how to avoid that.
+  "useMatch() may be used only in the context of a <Router> component.") : undefined : void 0;
+  return matchPath(pattern, useLocation().pathname);
+}
+/**
+ * The interface for the navigate() function returned from useNavigate().
+ */
+
+/**
+ * Returns an imperative method for changing the location. Used by <Link>s, but
+ * may also be used by other elements to change the location.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#usenavigate
+ */
+
+
+function useNavigate() {
+  !useInRouterContext() ?  true ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
+  // router loaded. We can help them understand how to avoid that.
+  "useNavigate() may be used only in the context of a <Router> component.") : undefined : void 0;
+
+  var _useContext2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(NavigationContext),
+      basename = _useContext2.basename,
+      navigator = _useContext2.navigator;
+
+  var _useContext3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(RouteContext),
+      matches = _useContext3.matches;
+
+  var _useLocation = useLocation(),
+      locationPathname = _useLocation.pathname;
+
+  var routePathnamesJson = JSON.stringify(matches.map(function (match) {
+    return match.pathnameBase;
+  }));
+  var activeRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(false);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    activeRef.current = true;
+  });
+  var navigate = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (to, options) {
+    if (options === void 0) {
+      options = {};
+    }
+
+     true ? warning(activeRef.current, "You should call navigate() in a React.useEffect(), not when " + "your component is first rendered.") : undefined;
+    if (!activeRef.current) return;
+
+    if (typeof to === "number") {
+      navigator.go(to);
+      return;
+    }
+
+    var path = resolveTo(to, JSON.parse(routePathnamesJson), locationPathname);
+
+    if (basename !== "/") {
+      path.pathname = joinPaths([basename, path.pathname]);
+    }
+
+    (!!options.replace ? navigator.replace : navigator.push)(path, options.state);
+  }, [basename, navigator, routePathnamesJson, locationPathname]);
+  return navigate;
+}
+/**
+ * Returns the element for the child route at this level of the route
+ * hierarchy. Used internally by <Outlet> to render child routes.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#useoutlet
+ */
+
+
+function useOutlet() {
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(RouteContext).outlet;
+}
+/**
+ * Returns an object of key/value pairs of the dynamic params from the current
+ * URL that were matched by the route path.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#useparams
+ */
+
+
+function useParams() {
+  var _useContext4 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(RouteContext),
+      matches = _useContext4.matches;
+
+  var routeMatch = matches[matches.length - 1];
+  return routeMatch ? routeMatch.params : {};
+}
+/**
+ * Resolves the pathname of the given `to` value against the current location.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#useresolvedpath
+ */
+
+
+function useResolvedPath(to) {
+  var _useContext5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(RouteContext),
+      matches = _useContext5.matches;
+
+  var _useLocation2 = useLocation(),
+      locationPathname = _useLocation2.pathname;
+
+  var routePathnamesJson = JSON.stringify(matches.map(function (match) {
+    return match.pathnameBase;
+  }));
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    return resolveTo(to, JSON.parse(routePathnamesJson), locationPathname);
+  }, [to, routePathnamesJson, locationPathname]);
+}
+/**
+ * Returns the element of the route that matched the current location, prepared
+ * with the correct context to render the remainder of the route tree. Route
+ * elements in the tree must render an <Outlet> to render their child route's
+ * element.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#useroutes
+ */
+
+
+function useRoutes(routes, locationArg) {
+  !useInRouterContext() ?  true ? invariant(false, // TODO: This error is probably because they somehow have 2 versions of the
+  // router loaded. We can help them understand how to avoid that.
+  "useRoutes() may be used only in the context of a <Router> component.") : undefined : void 0;
+
+  var _useContext6 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(RouteContext),
+      parentMatches = _useContext6.matches;
+
+  var routeMatch = parentMatches[parentMatches.length - 1];
+  var parentParams = routeMatch ? routeMatch.params : {};
+  var parentPathname = routeMatch ? routeMatch.pathname : "/";
+  var parentPathnameBase = routeMatch ? routeMatch.pathnameBase : "/";
+  var parentRoute = routeMatch && routeMatch.route;
+
+  if (true) {
+    // You won't get a warning about 2 different <Routes> under a <Route>
+    // without a trailing *, but this is a best-effort warning anyway since we
+    // cannot even give the warning unless they land at the parent route.
+    //
+    // Example:
+    //
+    // <Routes>
+    //   {/* This route path MUST end with /* because otherwise
+    //       it will never match /blog/post/123 */}
+    //   <Route path="blog" element={<Blog />} />
+    //   <Route path="blog/feed" element={<BlogFeed />} />
+    // </Routes>
+    //
+    // function Blog() {
+    //   return (
+    //     <Routes>
+    //       <Route path="post/:id" element={<Post />} />
+    //     </Routes>
+    //   );
+    // }
+    var parentPath = parentRoute && parentRoute.path || "";
+    warningOnce(parentPathname, !parentRoute || parentPath.endsWith("*"), "You rendered descendant <Routes> (or called `useRoutes()`) at " + ("\"" + parentPathname + "\" (under <Route path=\"" + parentPath + "\">) but the ") + "parent route path has no trailing \"*\". This means if you navigate " + "deeper, the parent won't match anymore and therefore the child " + "routes will never render.\n\n" + ("Please change the parent <Route path=\"" + parentPath + "\"> to <Route ") + ("path=\"" + parentPath + "/*\">."));
+  }
+
+  var locationFromContext = useLocation();
+  var location;
+
+  if (locationArg) {
+    var _parsedLocationArg$pa;
+
+    var parsedLocationArg = typeof locationArg === "string" ? Object(history__WEBPACK_IMPORTED_MODULE_1__["parsePath"])(locationArg) : locationArg;
+    !(parentPathnameBase === "/" || ((_parsedLocationArg$pa = parsedLocationArg.pathname) == null ? void 0 : _parsedLocationArg$pa.startsWith(parentPathnameBase))) ?  true ? invariant(false, "When overriding the location using `<Routes location>` or `useRoutes(routes, location)`, " + "the location pathname must begin with the portion of the URL pathname that was " + ("matched by all parent routes. The current pathname base is \"" + parentPathnameBase + "\" ") + ("but pathname \"" + parsedLocationArg.pathname + "\" was given in the `location` prop.")) : undefined : void 0;
+    location = parsedLocationArg;
+  } else {
+    location = locationFromContext;
+  }
+
+  var pathname = location.pathname || "/";
+  var remainingPathname = parentPathnameBase === "/" ? pathname : pathname.slice(parentPathnameBase.length) || "/";
+  var matches = matchRoutes(routes, {
+    pathname: remainingPathname
+  });
+
+  if (true) {
+     true ? warning(parentRoute || matches != null, "No routes matched location \"" + location.pathname + location.search + location.hash + "\" ") : undefined;
+     true ? warning(matches == null || matches[matches.length - 1].route.element !== undefined, "Matched leaf route at location \"" + location.pathname + location.search + location.hash + "\" does not have an element. " + "This means it will render an <Outlet /> with a null value by default resulting in an \"empty\" page.") : undefined;
+  }
+
+  return _renderMatches(matches && matches.map(function (match) {
+    return Object.assign({}, match, {
+      params: Object.assign({}, parentParams, match.params),
+      pathname: joinPaths([parentPathnameBase, match.pathname]),
+      pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : joinPaths([parentPathnameBase, match.pathnameBase])
+    });
+  }), parentMatches);
+} ///////////////////////////////////////////////////////////////////////////////
+// UTILS
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Creates a route config from a React "children" object, which is usually
+ * either a `<Route>` element or an array of them. Used internally by
+ * `<Routes>` to create a route config from its children.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#createroutesfromchildren
+ */
+
+
+function createRoutesFromChildren(children) {
+  var routes = [];
+  react__WEBPACK_IMPORTED_MODULE_0__["Children"].forEach(children, function (element) {
+    if (! /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["isValidElement"])(element)) {
+      // Ignore non-elements. This allows people to more easily inline
+      // conditionals in their route config.
+      return;
+    }
+
+    if (element.type === react__WEBPACK_IMPORTED_MODULE_0__["Fragment"]) {
+      // Transparently support React.Fragment and its children.
+      routes.push.apply(routes, createRoutesFromChildren(element.props.children));
+      return;
+    }
+
+    !(element.type === Route) ?  true ? invariant(false, "[" + (typeof element.type === "string" ? element.type : element.type.name) + "] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>") : undefined : void 0;
+    var route = {
+      caseSensitive: element.props.caseSensitive,
+      element: element.props.element,
+      index: element.props.index,
+      path: element.props.path
+    };
+
+    if (element.props.children) {
+      route.children = createRoutesFromChildren(element.props.children);
+    }
+
+    routes.push(route);
+  });
+  return routes;
+}
+/**
+ * The parameters that were parsed from the URL path.
+ */
+
+/**
+ * Returns a path with params interpolated.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#generatepath
+ */
+
+
+function generatePath(path, params) {
+  if (params === void 0) {
+    params = {};
+  }
+
+  return path.replace(/:(\w+)/g, function (_, key) {
+    !(params[key] != null) ?  true ? invariant(false, "Missing \":" + key + "\" param") : undefined : void 0;
+    return params[key];
+  }).replace(/\/*\*$/, function (_) {
+    return params["*"] == null ? "" : params["*"].replace(/^\/*/, "/");
+  });
+}
+/**
+ * A RouteMatch contains info about how a route matched a URL.
+ */
+
+/**
+ * Matches the given routes to a location and returns the match data.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#matchroutes
+ */
+
+
+function matchRoutes(routes, locationArg, basename) {
+  if (basename === void 0) {
+    basename = "/";
+  }
+
+  var location = typeof locationArg === "string" ? Object(history__WEBPACK_IMPORTED_MODULE_1__["parsePath"])(locationArg) : locationArg;
+  var pathname = stripBasename(location.pathname || "/", basename);
+
+  if (pathname == null) {
+    return null;
+  }
+
+  var branches = flattenRoutes(routes);
+  rankRouteBranches(branches);
+  var matches = null;
+
+  for (var i = 0; matches == null && i < branches.length; ++i) {
+    matches = matchRouteBranch(branches[i], routes, pathname);
+  }
+
+  return matches;
+}
+
+function flattenRoutes(routes, branches, parentsMeta, parentPath) {
+  if (branches === void 0) {
+    branches = [];
+  }
+
+  if (parentsMeta === void 0) {
+    parentsMeta = [];
+  }
+
+  if (parentPath === void 0) {
+    parentPath = "";
+  }
+
+  routes.forEach(function (route, index) {
+    var meta = {
+      relativePath: route.path || "",
+      caseSensitive: route.caseSensitive === true,
+      childrenIndex: index
+    };
+
+    if (meta.relativePath.startsWith("/")) {
+      !meta.relativePath.startsWith(parentPath) ?  true ? invariant(false, "Absolute route path \"" + meta.relativePath + "\" nested under path " + ("\"" + parentPath + "\" is not valid. An absolute child route path ") + "must start with the combined path of all its parent routes.") : undefined : void 0;
+      meta.relativePath = meta.relativePath.slice(parentPath.length);
+    }
+
+    var path = joinPaths([parentPath, meta.relativePath]);
+    var routesMeta = parentsMeta.concat(meta); // Add the children before adding this route to the array so we traverse the
+    // route tree depth-first and child routes appear before their parents in
+    // the "flattened" version.
+
+    if (route.children && route.children.length > 0) {
+      !(route.index !== true) ?  true ? invariant(false, "Index routes must not have child routes. Please remove " + ("all child routes from route path \"" + path + "\".")) : undefined : void 0;
+      flattenRoutes(route.children, branches, routesMeta, path);
+    } // Routes without a path shouldn't ever match by themselves unless they are
+    // index routes, so don't add them to the list of possible branches.
+
+
+    if (route.path == null && !route.index) {
+      return;
+    }
+
+    branches.push({
+      path: path,
+      score: computeScore(path, route.index),
+      routesMeta: routesMeta
+    });
+  });
+  return branches;
+}
+
+function rankRouteBranches(branches) {
+  branches.sort(function (a, b) {
+    return a.score !== b.score ? b.score - a.score // Higher score first
+    : compareIndexes(a.routesMeta.map(function (meta) {
+      return meta.childrenIndex;
+    }), b.routesMeta.map(function (meta) {
+      return meta.childrenIndex;
+    }));
+  });
+}
+
+var paramRe = /^:\w+$/;
+var dynamicSegmentValue = 3;
+var indexRouteValue = 2;
+var emptySegmentValue = 1;
+var staticSegmentValue = 10;
+var splatPenalty = -2;
+
+var isSplat = function isSplat(s) {
+  return s === "*";
+};
+
+function computeScore(path, index) {
+  var segments = path.split("/");
+  var initialScore = segments.length;
+
+  if (segments.some(isSplat)) {
+    initialScore += splatPenalty;
+  }
+
+  if (index) {
+    initialScore += indexRouteValue;
+  }
+
+  return segments.filter(function (s) {
+    return !isSplat(s);
+  }).reduce(function (score, segment) {
+    return score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue);
+  }, initialScore);
+}
+
+function compareIndexes(a, b) {
+  var siblings = a.length === b.length && a.slice(0, -1).every(function (n, i) {
+    return n === b[i];
+  });
+  return siblings ? // If two routes are siblings, we should try to match the earlier sibling
+  // first. This allows people to have fine-grained control over the matching
+  // behavior by simply putting routes with identical paths in the order they
+  // want them tried.
+  a[a.length - 1] - b[b.length - 1] : // Otherwise, it doesn't really make sense to rank non-siblings by index,
+  // so they sort equally.
+  0;
+}
+
+function matchRouteBranch(branch, // TODO: attach original route object inside routesMeta so we don't need this arg
+routesArg, pathname) {
+  var routes = routesArg;
+  var routesMeta = branch.routesMeta;
+  var matchedParams = {};
+  var matchedPathname = "/";
+  var matches = [];
+
+  for (var i = 0; i < routesMeta.length; ++i) {
+    var meta = routesMeta[i];
+    var end = i === routesMeta.length - 1;
+    var remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
+    var match = matchPath({
+      path: meta.relativePath,
+      caseSensitive: meta.caseSensitive,
+      end: end
+    }, remainingPathname);
+    if (!match) return null;
+    Object.assign(matchedParams, match.params);
+    var route = routes[meta.childrenIndex];
+    matches.push({
+      params: matchedParams,
+      pathname: joinPaths([matchedPathname, match.pathname]),
+      pathnameBase: joinPaths([matchedPathname, match.pathnameBase]),
+      route: route
+    });
+
+    if (match.pathnameBase !== "/") {
+      matchedPathname = joinPaths([matchedPathname, match.pathnameBase]);
+    }
+
+    routes = route.children;
+  }
+
+  return matches;
+}
+/**
+ * Renders the result of `matchRoutes()` into a React element.
+ */
+
+
+function renderMatches(matches) {
+  return _renderMatches(matches);
+}
+
+function _renderMatches(matches, parentMatches) {
+  if (parentMatches === void 0) {
+    parentMatches = [];
+  }
+
+  if (matches == null) return null;
+  return matches.reduceRight(function (outlet, match, index) {
+    return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RouteContext.Provider, {
+      children: match.route.element !== undefined ? match.route.element : /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Outlet, null),
+      value: {
+        outlet: outlet,
+        matches: parentMatches.concat(matches.slice(0, index + 1))
+      }
+    });
+  }, null);
+}
+/**
+ * A PathPattern is used to match on some portion of a URL pathname.
+ */
+
+/**
+ * Performs pattern matching on a URL pathname and returns information about
+ * the match.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#matchpath
+ */
+
+
+function matchPath(pattern, pathname) {
+  if (typeof pattern === "string") {
+    pattern = {
+      path: pattern,
+      caseSensitive: false,
+      end: true
+    };
+  }
+
+  var _compilePath = compilePath(pattern.path, pattern.caseSensitive, pattern.end),
+      _compilePath2 = _slicedToArray(_compilePath, 2),
+      matcher = _compilePath2[0],
+      paramNames = _compilePath2[1];
+
+  var match = pathname.match(matcher);
+  if (!match) return null;
+  var matchedPathname = match[0];
+  var pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
+  var captureGroups = match.slice(1);
+  var params = paramNames.reduce(function (memo, paramName, index) {
+    // We need to compute the pathnameBase here using the raw splat value
+    // instead of using params["*"] later because it will be decoded then
+    if (paramName === "*") {
+      var splatValue = captureGroups[index] || "";
+      pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
+    }
+
+    memo[paramName] = safelyDecodeURIComponent(captureGroups[index] || "", paramName);
+    return memo;
+  }, {});
+  return {
+    params: params,
+    pathname: matchedPathname,
+    pathnameBase: pathnameBase,
+    pattern: pattern
+  };
+}
+
+function compilePath(path, caseSensitive, end) {
+  if (caseSensitive === void 0) {
+    caseSensitive = false;
+  }
+
+  if (end === void 0) {
+    end = true;
+  }
+
+   true ? warning(path === "*" || !path.endsWith("*") || path.endsWith("/*"), "Route path \"" + path + "\" will be treated as if it were " + ("\"" + path.replace(/\*$/, "/*") + "\" because the `*` character must ") + "always follow a `/` in the pattern. To get rid of this warning, " + ("please change the route path to \"" + path.replace(/\*$/, "/*") + "\".")) : undefined;
+  var paramNames = [];
+  var regexpSource = "^" + path.replace(/\/*\*?$/, "") // Ignore trailing / and /*, we'll handle it below
+  .replace(/^\/*/, "/") // Make sure it has a leading /
+  .replace(/[\\.*+^$?{}|()[\]]/g, "\\$&") // Escape special regex chars
+  .replace(/:(\w+)/g, function (_, paramName) {
+    paramNames.push(paramName);
+    return "([^\\/]+)";
+  });
+
+  if (path.endsWith("*")) {
+    paramNames.push("*");
+    regexpSource += path === "*" || path === "/*" ? "(.*)$" // Already matched the initial /, just match the rest
+    : "(?:\\/(.+)|\\/*)$"; // Don't include the / in params["*"]
+  } else {
+    regexpSource += end ? "\\/*$" // When matching to the end, ignore trailing slashes
+    : // Otherwise, at least match a word boundary. This restricts parent
+    // routes to matching only their own words and nothing more, e.g. parent
+    // route "/home" should not match "/home2".
+    "(?:\\b|$)";
+  }
+
+  var matcher = new RegExp(regexpSource, caseSensitive ? undefined : "i");
+  return [matcher, paramNames];
+}
+
+function safelyDecodeURIComponent(value, paramName) {
+  try {
+    return decodeURIComponent(value);
+  } catch (error) {
+     true ? warning(false, "The value for the URL param \"" + paramName + "\" will not be decoded because" + (" the string \"" + value + "\" is a malformed URL segment. This is probably") + (" due to a bad percent encoding (" + error + ").")) : undefined;
+    return value;
+  }
+}
+/**
+ * Returns a resolved path object relative to the given pathname.
+ *
+ * @see https://reactrouter.com/docs/en/v6/api#resolvepath
+ */
+
+
+function resolvePath(to, fromPathname) {
+  if (fromPathname === void 0) {
+    fromPathname = "/";
+  }
+
+  var _ref5 = typeof to === "string" ? Object(history__WEBPACK_IMPORTED_MODULE_1__["parsePath"])(to) : to,
+      toPathname = _ref5.pathname,
+      _ref5$search = _ref5.search,
+      search = _ref5$search === void 0 ? "" : _ref5$search,
+      _ref5$hash = _ref5.hash,
+      hash = _ref5$hash === void 0 ? "" : _ref5$hash;
+
+  var pathname = toPathname ? toPathname.startsWith("/") ? toPathname : resolvePathname(toPathname, fromPathname) : fromPathname;
+  return {
+    pathname: pathname,
+    search: normalizeSearch(search),
+    hash: normalizeHash(hash)
+  };
+}
+
+function resolvePathname(relativePath, fromPathname) {
+  var segments = fromPathname.replace(/\/+$/, "").split("/");
+  var relativeSegments = relativePath.split("/");
+  relativeSegments.forEach(function (segment) {
+    if (segment === "..") {
+      // Keep the root "" segment so the pathname starts at /
+      if (segments.length > 1) segments.pop();
+    } else if (segment !== ".") {
+      segments.push(segment);
+    }
+  });
+  return segments.length > 1 ? segments.join("/") : "/";
+}
+
+function resolveTo(toArg, routePathnames, locationPathname) {
+  var to = typeof toArg === "string" ? Object(history__WEBPACK_IMPORTED_MODULE_1__["parsePath"])(toArg) : toArg;
+  var toPathname = toArg === "" || to.pathname === "" ? "/" : to.pathname; // If a pathname is explicitly provided in `to`, it should be relative to the
+  // route context. This is explained in `Note on `<Link to>` values` in our
+  // migration guide from v5 as a means of disambiguation between `to` values
+  // that begin with `/` and those that do not. However, this is problematic for
+  // `to` values that do not provide a pathname. `to` can simply be a search or
+  // hash string, in which case we should assume that the navigation is relative
+  // to the current location's pathname and *not* the route pathname.
+
+  var from;
+
+  if (toPathname == null) {
+    from = locationPathname;
+  } else {
+    var routePathnameIndex = routePathnames.length - 1;
+
+    if (toPathname.startsWith("..")) {
+      var toSegments = toPathname.split("/"); // Each leading .. segment means "go up one route" instead of "go up one
+      // URL segment".  This is a key difference from how <a href> works and a
+      // major reason we call this a "to" value instead of a "href".
+
+      while (toSegments[0] === "..") {
+        toSegments.shift();
+        routePathnameIndex -= 1;
+      }
+
+      to.pathname = toSegments.join("/");
+    } // If there are more ".." segments than parent routes, resolve relative to
+    // the root / URL.
+
+
+    from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
+  }
+
+  var path = resolvePath(to, from); // Ensure the pathname has a trailing slash if the original to value had one.
+
+  if (toPathname && toPathname !== "/" && toPathname.endsWith("/") && !path.pathname.endsWith("/")) {
+    path.pathname += "/";
+  }
+
+  return path;
+}
+
+function getToPathname(to) {
+  // Empty strings should be treated the same as / paths
+  return to === "" || to.pathname === "" ? "/" : typeof to === "string" ? Object(history__WEBPACK_IMPORTED_MODULE_1__["parsePath"])(to).pathname : to.pathname;
+}
+
+function stripBasename(pathname, basename) {
+  if (basename === "/") return pathname;
+
+  if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) {
+    return null;
+  }
+
+  var nextChar = pathname.charAt(basename.length);
+
+  if (nextChar && nextChar !== "/") {
+    // pathname does not start with basename/
+    return null;
+  }
+
+  return pathname.slice(basename.length) || "/";
+}
+
+var joinPaths = function joinPaths(paths) {
+  return paths.join("/").replace(/\/\/+/g, "/");
+};
+
+var normalizePathname = function normalizePathname(pathname) {
+  return pathname.replace(/\/+$/, "").replace(/^\/*/, "/");
+};
+
+var normalizeSearch = function normalizeSearch(search) {
+  return !search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
+};
+
+var normalizeHash = function normalizeHash(hash) {
+  return !hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash;
+}; ///////////////////////////////////////////////////////////////////////////////
+
+
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Level1(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Level1"));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Level1);
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Level2(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Level 2"));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Level2);
 
 /***/ })
 /******/ ]);
