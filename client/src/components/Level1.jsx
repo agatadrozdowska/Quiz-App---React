@@ -7,16 +7,20 @@ class Level1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentWord: '',
+      value: '',
       timeOut: false,
       timer: 10,
       round: 0,
-      tense: '',
+      randomTense: '',
       wrongAnswer: '',
-      wrongAnswres: []
+      wrongAnswers: []
     };
     this.getRandomTense = this.getRandomTense.bind(this);
     this.startTimeOut = this.startTimeOut.bind(this);
+    this.handleRestart = this.handleRestart.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkMatched = this.checkMatched.bind(this);
   }
 
   componentDidMount() {
@@ -51,9 +55,61 @@ class Level1 extends React.Component {
     this.setState({ tense: tenseArray[randomIndex] });
   }
 
+  handleRestart() {
+    this.setState({ timer: 10, timeOut: false, wrongAnswer: '' });
+    this.startTimeOut();
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log('hello')
+
+    if (this.state.timeOut) {
+      return alert('Please click restart button to keep going');
+    }
+    if (!this.state.value.trim()) {
+      return alert('Please type something first');
+    }
+
+    this.setState({ value: '', wrongAnswer: '' });
+
+    this.checkMatched();
+  }
+
+  checkMatched() {
+    (this.state.randomTense === 'simple' ? level1[this.state.round].simple : level1[this.state.round].past)
+      === this.state.value ?
+      this.setState({ round: this.state.round + 1, timer: 10, wrongAnswer: '' }, () => {
+        this.getRandomTense();
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(() => {
+          this.setState({ timeOut: true });
+        }, 10000);
+
+      })
+      :
+      this.setState({
+        wrongAnswer: this.state.randomTense === 'simple' ? `${level1[this.state.round].simple}`
+          : `${level1[this.state.round].past}`
+      }, () => {
+        this.setState({
+          round: this.state.round + 1, timer: 10, wrongAnswers: this.state.wrongAnswers.concat(level1[this.state.round].voca)
+        });
+        this.getRandomTense();
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(() => {
+          this.setState({ timeOut: true });
+        }, 10000);
+      });
+  }
+
   render() {
     return (
-      <div style={{ padding: '1rem', border: '1px solid grey', borderRadius: '4px', maxWidth: 400, margin: '3rem, auto' }}>
+      <div style={{ padding: '1rem', border: '1px solid grey', borderRadius: '4px', maxWidth: 400, margin: '3rem, auto' }} >
         <h1>Vocabulary Quiz</h1>
         <Progress percent={0} status='active' />
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -63,20 +119,20 @@ class Level1 extends React.Component {
         <span style={{ marginBottom: 0, color: 'grey' }}>Infinitive</span>
         <h2>Voca</h2>
         <div style={{ fontSize: '1rem' }}>Answer the voca's <span style={{ color: 'red' }}>past participle</span></div>
-        <form style={{ padding: '1rem 0' }}>
+        <form style={{ padding: '1rem 0' }} onSubmit={this.handleSubmit}>
           <div style={{ display: 'flex' }}>
-            <Input name='value' onChange value id='voca' type="text" />
+            <Input name='value' onChange={this.handleChange} id='voca' type="text" />
           </div>
-          <Button className type='submit' onClick>Submit</Button>
+          <Button className type='submit' onClick={this.handleSubmit}>Submit</Button>
         </form>
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Button>5</Button>
-          <Button>4</Button>
-          <Button>3</Button>
-          <Button>2</Button>
-          <Button>1</Button>
-          <Button>Click to Restart!</Button>
+          <Button disabled={this.state.timer <= 8 ? true : false}>5</Button>
+          <Button disabled={this.state.timer <= 6 ? true : false}>4</Button>
+          <Button disabled={this.state.timer <= 4 ? true : false}>3</Button>
+          <Button disabled={this.state.timer <= 2 ? true : false}>2</Button>
+          <Button disabled={this.state.timer <= 0 ? true : false}>1</Button>
+          <Button onClick={this.handleRestart} style={{ display: this.state.timeOut ? 'block' : 'none' }}>Click to Restart!</Button>
         </div>
 
         <Divider />
@@ -100,7 +156,7 @@ class Level1 extends React.Component {
           <Button>Retry</Button>
           <Button>Level 2</Button>
         </div>
-      </div>
+      </div >
     );
   }
 }
