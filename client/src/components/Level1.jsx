@@ -4,6 +4,7 @@ import { AudioFilled } from '@ant-design/icons'
 import { level1 } from '../data.js';
 import { Link } from 'react-router-dom';
 import Level2 from './Level2.jsx';
+import App from '../App.jsx';
 
 class Level1 extends React.Component {
 
@@ -187,13 +188,13 @@ class Level1 extends React.Component {
             <div>
               <ul>
                 {this.state.wrongAnswers.map((answer, index) => {
-                  return <li key='index'>{answer}</li>
+                  return <li key={index}>{answer}</li>
                 })}
               </ul>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
               <Button onClick={this.handleRedirect}>Retry</Button>
-              <Button><Link to='/level2'></Link>Level 2</Button>
+              <Button><Link to='/level2'>Level2</Link></Button>
             </div>
           </React.Fragment>
 
